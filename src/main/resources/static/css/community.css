@@ -1,0 +1,75 @@
+* { box-sizing: border-box; }
+
+.input {
+  width: 100%;
+  border: 1px solid rgb(203 213 225);
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color .15s ease;
+  background: #fff;
+}
+.input:focus {
+  border-color: rgb(14 165 233);
+}
+
+.btn {
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+  transition: .15s ease;
+}
+
+.btn-primary { background: rgb(2 132 199); color: #fff; }
+.btn-primary:hover { background: rgb(3 105 161); }
+
+.btn-success { background: rgb(5 150 105); color: #fff; }
+.btn-success:hover { background: rgb(4 120 87); }
+
+.btn-indigo { background: rgb(79 70 229); color: #fff; }
+.btn-indigo:hover { background: rgb(67 56 202); }
+
+.btn-warning { background: rgb(217 119 6); color: #fff; }
+.btn-warning:hover { background: rgb(180 83 9); }
+
+.btn-danger {
+  background: rgb(254 242 242);
+  color: rgb(190 18 60);
+  border-color: rgb(253 164 175);
+}
+.btn-danger:hover { background: rgb(255 228 230); }
+
+.btn-ghost {
+  background: #fff;
+  color: rgb(51 65 85);
+  border-color: rgb(203 213 225);
+}
+.btn-ghost:hover { background: rgb(248 250 252); }
+
+button:disabled {
+  opacity: .6;
+}
+
+button {
+  white-space: nowrap; /* 줄바꿈 방지 */
+  word-break: keep-all; /* 한글 글자 단위 줄바꿈 방지 */
+}
+
+html, body {
+  font-size: 14px;
+  min-width: 1200px;
+}
+
+#app {
+  min-width: 1200px;
+}
+
+.title-cell {
+  max-width: 240px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
