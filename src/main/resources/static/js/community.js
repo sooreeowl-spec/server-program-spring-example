@@ -12,6 +12,7 @@ createApp({
 
     const showCreate = ref(false);
     const editingPost = ref(false);
+    const showRegisterModal = ref(false);
 
     const loginForm = reactive({ username: '', password: '' });
     const registerForm = reactive({ username: '', password: '', nickname: '', email: '' });
@@ -107,6 +108,14 @@ createApp({
       showToast('로그아웃되었습니다');
     }
 
+    function openRegisterModal() {
+      showRegisterModal.value = true;
+    }
+
+    function closeRegisterModal() {
+      showRegisterModal.value = false;
+    }
+
     async function register() {
       if (!registerForm.username || !registerForm.password || !registerForm.nickname) {
         return showToast('회원가입 필수값을 입력하세요', 'error');
@@ -116,6 +125,7 @@ createApp({
         await api('/api/users', { method: 'POST', body: JSON.stringify(registerForm) });
         showToast('회원가입 성공! 로그인해주세요.');
         Object.assign(registerForm, { username: '', password: '', nickname: '', email: '' });
+        closeRegisterModal();
       } catch (e) {
         showToast(e.message, 'error');
       } finally {
@@ -278,10 +288,11 @@ createApp({
     return {
       me, posts, comments, selectedPost,
       page, limit,
-      showCreate, editingPost,
+      showCreate, editingPost, showRegisterModal,
       loginForm, registerForm, createPostForm, editPostForm, commentForm,
       loading, toast,
       fmt, truncateTitle, goToLogin,
+      openRegisterModal, closeRegisterModal,
       login, logout, register,
       fetchPosts, createPost,
       openPost, closePost, startEditPost, updatePost, deletePost,
